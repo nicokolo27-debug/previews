@@ -11,21 +11,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0B0D11;
-      --bg-alt: #10131A;
-      --surface: #131720;
-      --surface-hover: #191F2C;
+      --bg: #090B0F;
+      --bg-alt: #0F131B;
+      --surface: #131822;
+      --surface-hover: #1A212E;
       --border: rgba(255,255,255,0.09);
-      --border-strong: rgba(255,255,255,0.16);
+      --border-strong: rgba(255,255,255,0.17);
       --text: #F8FAFC;
       --muted: #94A3B8;
-      --header-bg: rgba(11, 13, 17, 0.86);
+      --header-bg: rgba(9, 11, 15, 0.80);
       --accent: #F97316;
       --accent-text: #FFFFFF;
       --accent-soft: rgba(249, 115, 22, 0.14);
-      --accent-ring: rgba(249, 115, 22, 0.28);
+      --accent-ring: rgba(249, 115, 22, 0.30);
       --star: #FBBF24;
-      --input-bg: #0E1218;
+      --input-bg: #0C1017;
       --radius: 14px;
       --radius-sm: 10px;
       --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -39,14 +39,15 @@
       background: var(--bg);
       color: var(--text);
       font-family: var(--font-sans);
-      line-height: 1.6;
+      line-height: 1.55;
       -webkit-font-smoothing: antialiased;
-      padding-bottom: 68px;
+      padding-bottom: 66px;
     }
     @media (min-width: 768px) { body { padding-bottom: 0; } }
 
     a { color: inherit; text-decoration: none; }
-    button, input, select, textarea { font: inherit; color: inherit; }
+    button, input, textarea { font: inherit; color: inherit; }
+    img { display: block; max-width: 100%; }
 
     .container {
       width: 100%;
@@ -55,56 +56,57 @@
       padding: 0 20px;
     }
 
-    /* Preview Banner */
-    .preview-banner {
-      background: var(--accent);
-      color: var(--accent-text);
-      font-size: 0.85rem;
-      font-weight: 500;
-      border-bottom: 1px solid rgba(0,0,0,0.12);
+    /* Sleek Preview Bar */
+    .preview-bar {
+      background: #07090D;
+      color: #CBD5E1;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.78rem;
+      min-height: 32px;
+      display: flex;
+      align-items: center;
     }
-    .preview-banner__inner {
+    .preview-bar__inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      padding-top: 8px;
-      padding-bottom: 8px;
+      padding-top: 5px;
+      padding-bottom: 5px;
     }
-    .preview-banner__text {
+    .preview-bar__text {
       display: flex;
       align-items: center;
-      flex-wrap: wrap;
       gap: 8px;
     }
-    .preview-pill {
-      display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: rgba(0, 0, 0, 0.16);
+    .preview-bar__text strong { color: #FFFFFF; font-weight: 600; }
+    .preview-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-soft);
+      flex-shrink: 0;
     }
-    .preview-banner__close {
+    .preview-bar__close {
       background: transparent;
       border: 0;
-      font-size: 1.35rem;
+      color: #94A3B8;
+      font-size: 1.15rem;
       line-height: 1;
       cursor: pointer;
-      padding: 2px 6px;
-      opacity: 0.8;
+      padding: 0 4px;
     }
-    .preview-banner__close:hover { opacity: 1; }
+    .preview-bar__close:hover { color: #FFFFFF; }
 
-    /* Header */
+    /* Glass Header */
     .site-header {
       position: sticky;
       top: 0;
       z-index: 50;
       background: var(--header-bg);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
     }
     .header-inner {
@@ -112,7 +114,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      height: 70px;
+      height: 66px;
     }
     .brand {
       display: flex;
@@ -120,37 +122,39 @@
       gap: 10px;
       font-family: var(--font-display);
       font-weight: 700;
-      font-size: 1.12rem;
+      font-size: 1.08rem;
       letter-spacing: -0.02em;
     }
     .brand-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 9px;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
       background: var(--accent);
       color: var(--accent-text);
       display: grid;
       place-items: center;
       font-weight: 800;
-      font-size: 1rem;
+      font-size: 0.96rem;
       flex-shrink: 0;
     }
     .nav-links {
       display: none;
       align-items: center;
-      gap: 26px;
-      font-size: 0.92rem;
+      gap: 28px;
+      font-size: 0.9rem;
       font-weight: 500;
       color: var(--muted);
     }
     .nav-links a:hover { color: var(--text); }
-    @media (min-width: 860px) { .nav-links { display: flex; } }
+    @media (min-width: 820px) { .nav-links { display: flex; } }
 
     .header-actions {
       display: flex;
       align-items: center;
       gap: 10px;
     }
+    .header-phone { display: none; }
+    @media (min-width: 640px) { .header-phone { display: inline-flex; } }
 
     /* Buttons */
     .btn {
@@ -161,17 +165,17 @@
       padding: 11px 18px;
       border-radius: var(--radius-sm);
       font-weight: 600;
-      font-size: 0.94rem;
+      font-size: 0.92rem;
       cursor: pointer;
       border: 1px solid transparent;
-      transition: transform 0.14s ease, background-color 0.14s ease, border-color 0.14s ease;
+      transition: transform 0.14s ease, filter 0.14s ease, background-color 0.14s ease;
       white-space: nowrap;
     }
     .btn:active { transform: translateY(1px); }
     .btn-primary {
       background: var(--accent);
       color: var(--accent-text);
-      box-shadow: 0 6px 20px -6px var(--accent-ring);
+      box-shadow: 0 8px 24px -8px var(--accent-ring);
     }
     .btn-primary:hover { filter: brightness(1.06); }
     .btn-outline {
@@ -180,73 +184,62 @@
       color: var(--text);
     }
     .btn-outline:hover { background: var(--surface-hover); }
-    .btn-sm { padding: 8px 14px; font-size: 0.86rem; }
-    .btn-lg { padding: 14px 24px; font-size: 1rem; }
-    .header-phone { display: none; }
-    @media (min-width: 640px) { .header-phone { display: inline-flex; } }
+    .btn-glass {
+      background: rgba(255, 255, 255, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      color: #FFFFFF;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+    .btn-glass:hover { background: rgba(255, 255, 255, 0.18); }
+    .btn-sm { padding: 8px 14px; font-size: 0.85rem; }
+    .btn-lg { padding: 14px 24px; font-size: 0.98rem; }
 
-    /* Hero */
+    /* Full-Bleed Cinematic Hero */
     .hero {
-      padding: 54px 0 64px;
-      border-bottom: 1px solid var(--border);
-      background:
-        radial-gradient(640px 320px at 85% 0%, var(--accent-soft), transparent 70%),
-        var(--bg);
-    }
-    @media (min-width: 900px) { .hero { padding: 76px 0 84px; } }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 36px;
-      align-items: center;
-    }
-    @media (min-width: 920px) {
-      .hero-grid { grid-template-columns: 1.15fr 0.85fr; gap: 48px; }
-    }
-    .area-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 6px 12px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.82rem;
-      font-weight: 600;
-      margin-bottom: 18px;
-    }
-    h1, h2, h3 {
-      font-family: var(--font-display);
-      letter-spacing: -0.025em;
-      margin: 0;
-    }
-    .hero h1 {
-      font-size: clamp(2.1rem, 4.4vw, 3.35rem);
-      line-height: 1.08;
-      margin-bottom: 18px;
-    }
-    .hero-sub {
-      font-size: 1.08rem;
-      color: var(--muted);
-      max-width: 56ch;
-      margin: 0 0 26px;
-    }
-    .hero-ctas {
+      position: relative;
+      min-height: 68vh;
       display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 26px;
+      align-items: center;
+      padding: 72px 0 84px;
+      background-color: #090B0F;
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      color: #F8FAFC;
     }
-    .google-trust {
+    @media (min-width: 900px) {
+      .hero { min-height: 78vh; padding: 90px 0 100px; }
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(8, 10, 14, 0.88) 0%, rgba(8, 10, 14, 0.62) 55%, rgba(8, 10, 14, 0.28) 100%),
+        linear-gradient(180deg, rgba(8, 10, 14, 0.18) 0%, rgba(8, 10, 14, 0) 55%, var(--bg) 100%);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+    }
+    .hero-pill {
       display: inline-flex;
       align-items: center;
       flex-wrap: wrap;
-      gap: 10px;
-      padding: 10px 14px;
-      border-radius: var(--radius-sm);
-      background: var(--surface);
-      border: 1px solid var(--border);
-      font-size: 0.9rem;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.68);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: #F1F5F9;
+      margin-bottom: 20px;
     }
     .stars {
       display: inline-flex;
@@ -254,144 +247,106 @@
       gap: 2px;
       color: var(--star);
     }
-    .google-trust strong { font-weight: 700; }
-    .google-trust span.muted { color: var(--muted); }
-
-    /* Highlights / Media Card */
-    .highlights-card, .hero-media-card {
-      background: var(--surface);
-      border: 1px solid var(--border-strong);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: 0 20px 44px -24px rgba(0,0,0,0.45);
-    }
-    .hero-media-card { padding: 12px; }
-    .hero-media-card img {
-      width: 100%;
-      height: 320px;
-      object-fit: cover;
-      border-radius: 10px;
-      display: block;
-    }
-    .hero-media-card__caption {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 6px 4px;
-      font-size: 0.88rem;
-      color: var(--muted);
-      font-weight: 500;
-    }
-    .dot-live {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #22C55E;
-      display: inline-block;
-    }
-    .highlights-card__top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 12px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 18px;
-    }
-    .eyebrow {
-      display: block;
-      font-size: 0.76rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-    .highlights-card__top h3 { font-size: 1.25rem; }
-    .rating-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 5px 10px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--star);
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-    .highlights-list {
-      list-style: none;
-      padding: 0;
+    h1, h2, h3 {
+      font-family: var(--font-display);
+      letter-spacing: -0.025em;
       margin: 0;
-      display: grid;
-      gap: 14px;
     }
-    .highlights-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
+    .hero h1 {
+      font-size: clamp(2.4rem, 5.2vw, 4rem);
+      line-height: 1.05;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+      text-shadow: 0 2px 22px rgba(0, 0, 0, 0.45);
     }
-    .highlights-list__icon {
-      color: var(--accent);
-      flex-shrink: 0;
-      margin-top: 2px;
+    .hero-sub {
+      font-size: clamp(1.02rem, 1.8vw, 1.18rem);
+      color: #CBD5E1;
+      margin: 0 0 28px;
+      max-width: 48ch;
     }
-    .highlights-list li strong {
-      display: block;
-      font-size: 0.95rem;
-      line-height: 1.3;
-    }
-    .highlights-list li span {
-      display: block;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-    .highlights-card__footer {
-      margin-top: 20px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
+    .hero-ctas {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.84rem;
-      color: var(--muted);
-    }
-    .inline-call {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--text);
-      font-weight: 600;
+      gap: 12px;
     }
 
     /* Sections */
-    .section { padding: 72px 0; }
+    .section { padding: 56px 0; }
+    @media (min-width: 820px) { .section { padding: 68px 0; } }
     .section-alt {
       background: var(--bg-alt);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
+    .eyebrow {
+      display: block;
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
     .section-head {
-      max-width: 650px;
-      margin-bottom: 36px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 28px;
     }
-    .section-head h2 {
-      font-size: clamp(1.7rem, 3vw, 2.3rem);
-      margin-bottom: 10px;
+    .section-head h2 { font-size: clamp(1.65rem, 3vw, 2.25rem); }
+
+    /* Visual Gallery Strip */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
     }
-    .section-head p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.02rem;
+    @media (min-width: 720px) {
+      .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+    }
+    .gallery-card {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #131822;
+      border: 1px solid var(--border);
+    }
+    .gallery-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+    .gallery-card:hover img { transform: scale(1.03); }
+    .gallery-card__overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 20px;
+      background: linear-gradient(180deg, rgba(8, 10, 14, 0) 42%, rgba(8, 10, 14, 0.88) 100%);
+      color: #FFFFFF;
+    }
+    .gallery-card__overlay h3 {
+      font-size: 1.15rem;
+      margin-bottom: 2px;
+    }
+    .gallery-card__overlay span {
+      font-size: 0.86rem;
+      color: #CBD5E1;
     }
 
-    /* Packages Grid */
+    /* Streamlined Packages */
     .packages-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 20px;
+      gap: 18px;
+      margin-bottom: 30px;
     }
     @media (min-width: 820px) {
       .packages-grid { grid-template-columns: repeat(3, 1fr); }
@@ -400,7 +355,7 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 26px;
+      padding: 24px;
       display: flex;
       flex-direction: column;
       position: relative;
@@ -409,19 +364,19 @@
     .package-card:hover { border-color: var(--border-strong); transform: translateY(-2px); }
     .package-card.is-popular {
       border-color: var(--accent);
-      box-shadow: 0 18px 40px -24px var(--accent-ring);
+      box-shadow: 0 18px 40px -26px var(--accent-ring);
     }
     .popular-badge {
       position: absolute;
-      top: -12px;
-      right: 20px;
+      top: -11px;
+      right: 18px;
       background: var(--accent);
       color: var(--accent-text);
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 700;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      padding: 4px 10px;
+      padding: 3px 10px;
       border-radius: 999px;
     }
     .package-meta {
@@ -429,11 +384,11 @@
       align-items: baseline;
       justify-content: space-between;
       gap: 10px;
-      margin: 10px 0 12px;
+      margin: 8px 0 16px;
     }
     .package-price {
       font-family: var(--font-display);
-      font-size: 2rem;
+      font-size: 1.9rem;
       font-weight: 800;
     }
     .package-duration {
@@ -441,128 +396,120 @@
       color: var(--muted);
       font-weight: 500;
     }
-    .package-desc {
-      margin: 0 0 18px;
-      font-size: 0.92rem;
-      color: var(--muted);
-    }
     .package-features {
       list-style: none;
       padding: 0;
-      margin: 0 0 24px;
+      margin: 0 0 22px;
       display: grid;
-      gap: 10px;
+      gap: 9px;
       flex-grow: 1;
-      font-size: 0.92rem;
+      font-size: 0.91rem;
+      color: var(--muted);
     }
     .package-features li {
       display: flex;
-      align-items: flex-start;
-      gap: 9px;
+      align-items: center;
+      gap: 8px;
+      color: var(--text);
     }
-    .package-features svg {
-      color: var(--accent);
-      flex-shrink: 0;
-      margin-top: 2px;
-      width: 17px;
-      height: 17px;
-    }
+    .package-features svg { color: var(--accent); flex-shrink: 0; }
 
-    /* Estimator */
-    .estimator-box {
+    /* Compact Estimator */
+    .estimator-card {
       background: var(--surface);
       border: 1px solid var(--border-strong);
       border-radius: var(--radius);
-      padding: 26px;
+      padding: 24px;
       display: grid;
       grid-template-columns: 1fr;
-      gap: 28px;
+      gap: 24px;
+      align-items: center;
     }
-    @media (min-width: 880px) {
-      .estimator-box { grid-template-columns: 1.35fr 0.65fr; padding: 34px; }
+    @media (min-width: 860px) {
+      .estimator-card { grid-template-columns: 1.4fr 0.6fr; padding: 28px; }
     }
-    .est-group { margin-bottom: 24px; }
+    .est-group { margin-bottom: 16px; }
     .est-group:last-child { margin-bottom: 0; }
     .est-label {
       display: block;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
       font-weight: 700;
-      font-size: 0.92rem;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
-    .chip-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 10px;
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
     }
     .choice-btn {
-      text-align: left;
       background: var(--input-bg);
       border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 12px 14px;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.85rem;
+      font-weight: 600;
       cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       transition: border-color 0.14s ease, background-color 0.14s ease;
     }
     .choice-btn:hover { border-color: var(--border-strong); }
     .choice-btn.is-active {
       border-color: var(--accent);
       background: var(--accent-soft);
+      color: var(--text);
     }
-    .choice-btn strong { display: block; font-size: 0.92rem; }
-    .choice-btn span { display: block; font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
+    .choice-btn small { color: var(--muted); font-weight: 500; }
 
-    .est-summary {
+    .est-result {
       background: var(--bg-alt);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 18px;
+      padding: 22px;
+      text-align: center;
     }
     .est-price-range {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 3.6vw, 2.55rem);
+      font-size: clamp(2rem, 3.5vw, 2.5rem);
       font-weight: 800;
       line-height: 1.1;
-      margin: 6px 0;
+      margin: 4px 0 6px;
     }
-    .est-breakdown {
-      font-size: 0.88rem;
+    .est-time {
+      font-size: 0.84rem;
       color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    /* Single-Row Trust Strip */
+    .trust-strip {
       border-top: 1px solid var(--border);
-      padding-top: 14px;
-      display: grid;
-      gap: 6px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      padding: 18px 0;
     }
+    .trust-strip__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px 18px;
+    }
+    @media (min-width: 780px) {
+      .trust-strip__grid { grid-template-columns: repeat(4, 1fr); }
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+    .trust-item svg { color: var(--accent); flex-shrink: 0; }
 
-    /* Trust Pillars */
-    .pillars-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 18px;
-    }
-    .pillar-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 22px;
-    }
-    .pillar-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      display: grid;
-      place-items: center;
-      margin-bottom: 14px;
-    }
-    .pillar-card h3 { font-size: 1.08rem; margin-bottom: 6px; }
-    .pillar-card p { margin: 0; font-size: 0.91rem; color: var(--muted); }
-
-    /* Reviews */
+    /* Scannable Reviews */
     .reviews-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -573,95 +520,66 @@
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 24px;
+      padding: 22px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 16px;
+      gap: 14px;
     }
     .review-text {
       margin: 0;
-      font-size: 0.95rem;
-      line-height: 1.65;
+      font-size: 0.93rem;
+      color: var(--muted);
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
     .review-author {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       color: var(--muted);
       border-top: 1px solid var(--border);
-      padding-top: 12px;
+      padding-top: 10px;
     }
     .review-author strong { color: var(--text); }
 
-    /* FAQ */
-    .faq-list {
-      display: grid;
-      gap: 12px;
-      max-width: 820px;
-    }
-    .faq-item {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-    }
-    .faq-trigger {
-      width: 100%;
-      background: transparent;
-      border: 0;
-      padding: 18px 20px;
-      text-align: left;
-      font-weight: 600;
-      font-size: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-      cursor: pointer;
-    }
-    .faq-plus {
-      font-size: 1.25rem;
-      color: var(--accent);
-      transition: transform 0.16s ease;
-    }
-    .faq-item.is-open .faq-plus { transform: rotate(45deg); }
-    .faq-answer {
-      display: none;
-      padding: 0 20px 18px;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-    .faq-item.is-open .faq-answer { display: block; }
-
-    /* Quote Form */
+    /* Compact Quote Section */
     .quote-layout {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 32px;
+      gap: 24px;
       align-items: start;
     }
-    @media (min-width: 860px) { .quote-layout { grid-template-columns: 0.85fr 1.15fr; } }
+    @media (min-width: 840px) { .quote-layout { grid-template-columns: 0.82fr 1.18fr; } }
     .quote-info {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 26px;
+      padding: 24px;
       display: grid;
-      gap: 18px;
+      gap: 16px;
     }
-    .info-row strong { display: block; font-size: 0.82rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
-    .info-row span, .info-row a { font-size: 1rem; font-weight: 600; }
+    .info-row strong {
+      display: block;
+      font-size: 0.76rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 2px;
+    }
+    .info-row span, .info-row a { font-size: 0.96rem; font-weight: 600; }
     .area-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
       margin-top: 6px;
     }
     .area-tag {
-      font-size: 0.8rem;
-      padding: 4px 10px;
+      font-size: 0.78rem;
+      padding: 3px 9px;
       border-radius: 999px;
       background: var(--bg-alt);
       border: 1px solid var(--border);
@@ -672,38 +590,36 @@
       background: var(--surface);
       border: 1px solid var(--border-strong);
       border-radius: var(--radius);
-      padding: 28px;
+      padding: 24px;
     }
     .form-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 16px;
+      gap: 14px;
     }
     @media (min-width: 600px) { .form-grid--2 { grid-template-columns: 1fr 1fr; } }
     .field label {
       display: block;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 600;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
     }
-    .field input, .field select, .field textarea {
+    .field input, .field textarea {
       width: 100%;
       background: var(--input-bg);
       border: 1px solid var(--border-strong);
       border-radius: 9px;
-      padding: 11px 13px;
-      font-size: 0.95rem;
+      padding: 10px 12px;
+      font-size: 0.93rem;
       outline: none;
       transition: border-color 0.14s ease;
     }
-    .field input:focus, .field select:focus, .field textarea:focus {
-      border-color: var(--accent);
-    }
+    .field input:focus, .field textarea:focus { border-color: var(--accent); }
     .form-status {
-      margin-top: 16px;
-      padding: 14px 16px;
-      border-radius: 10px;
-      font-size: 0.92rem;
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 9px;
+      font-size: 0.9rem;
       display: none;
     }
     .form-status.is-visible { display: block; }
@@ -719,8 +635,8 @@
     /* Footer */
     .site-footer {
       border-top: 1px solid var(--border);
-      padding: 36px 0;
-      font-size: 0.88rem;
+      padding: 28px 0;
+      font-size: 0.85rem;
       color: var(--muted);
     }
     .footer-inner {
@@ -728,7 +644,7 @@
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      gap: 16px;
+      gap: 12px;
     }
 
     /* Mobile Sticky CTA Bar */
@@ -742,7 +658,7 @@
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border-top: 1px solid var(--border-strong);
-      padding: 10px 14px;
+      padding: 9px 14px;
       display: grid;
       grid-template-columns: 1fr 1.25fr;
       gap: 10px;
@@ -752,13 +668,13 @@
 </head>
 <body>
   
-    <div id="preview-banner" class="preview-banner" role="region" aria-label="Website preview notice">
-      <div class="container preview-banner__inner">
-        <div class="preview-banner__text">
-          <span class="preview-pill">LIVE PREVIEW</span>
-          <span>Exclusive preview built for <strong>Mike&#39;s Pro Detailing</strong> &mdash; Ready to launch on your domain.</span>
+    <div id="preview-banner" class="preview-bar" role="region" aria-label="Website preview notice">
+      <div class="container preview-bar__inner">
+        <div class="preview-bar__text">
+          <span class="preview-dot" aria-hidden="true"></span>
+          <span>Live Preview for <strong>Mike&#39;s Pro Detailing</strong> &mdash; Ready for your domain</span>
         </div>
-        <button type="button" id="dismiss-preview-btn" class="preview-banner__close" aria-label="Dismiss preview notice">&times;</button>
+        <button type="button" id="dismiss-preview-btn" class="preview-bar__close" aria-label="Dismiss preview notice">&times;</button>
       </div>
     </div>
 
@@ -769,10 +685,9 @@
         <span>Mike&#39;s Pro Detailing</span>
       </a>
       <nav class="nav-links" aria-label="Main navigation">
-        <a href="#services">Services</a>
-        <a href="#estimator">Price Estimator</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#packages">Packages</a>
         <a href="#reviews">Reviews</a>
-        <a href="#faq">FAQ</a>
       </nav>
       <div class="header-actions">
         <a href="tel:8137872751" class="btn btn-outline btn-sm header-phone">
@@ -784,86 +699,70 @@
   </header>
 
   <main>
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="area-badge">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Serving Tampa, FL &bull; Mobile Service
+    <!-- Full-Bleed Photo Hero -->
+    <section class="hero" style="background-image: url('../assets/detailing/hero.jpg');">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-pill">
+            <span class="stars" aria-label="5 out of 5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+            <span><strong>4.6</strong> (51 Google Reviews) &bull; Tampa, FL</span>
           </div>
-          <h1>Showroom-Level Mobile Detailing in Tampa</h1>
-          <p class="hero-sub">Mike&#39;s Pro Detailing brings spot-free water, power, and pro-grade interior &amp; exterior care straight to your home or workplace across Tampa, FL.</p>
+          <h1>Showroom Shine. At Your Door.</h1>
+          <p class="hero-sub">Spot-free water, power &amp; pro-grade detailing brought to your Tampa driveway.</p>
           <div class="hero-ctas">
-            <a href="#estimator" class="btn btn-primary btn-lg">Get Instant Estimate</a>
-            <a href="#services" class="btn btn-outline btn-lg">View Packages</a>
+            <a href="#estimator" class="btn btn-primary btn-lg">Instant Estimate</a>
+            <a href="tel:8137872751" class="btn btn-glass btn-lg"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call (813) 787-2751</a>
           </div>
-          <div class="google-trust">
-            <span class="stars" aria-label="5 out of 5 stars"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
-            <strong>4.6</strong>
-            <span class="muted">based on 51+ Google Reviews in Tampa</span>
-          </div>
-        </div>
-        <div>
-          
-      <div class="highlights-card">
-        <div class="highlights-card__top">
-          <div>
-            <span class="eyebrow">The Driveway Standard</span>
-            <h3>Tampa, FL</h3>
-          </div>
-          <div class="rating-chip">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            <span>4.6</span>
-          </div>
-        </div>
-        <ul class="highlights-list">
-          
-            <li>
-              <span class="highlights-list__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>
-              <div>
-                <strong>On-Site Power &amp; Water</strong>
-                <span>100% self-contained mobile setup</span>
-              </div>
-            </li>
-            <li>
-              <span class="highlights-list__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>
-              <div>
-                <strong>Paint-Safe Wash Process</strong>
-                <span>pH-neutral foams &amp; plush microfiber</span>
-              </div>
-            </li>
-            <li>
-              <span class="highlights-list__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>
-              <div>
-                <strong>Same-Week Availability</strong>
-                <span>Flexible morning &amp; afternoon slots</span>
-              </div>
-            </li>
-            <li>
-              <span class="highlights-list__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>
-              <div>
-                <strong>Transparent Pricing</strong>
-                <span>Upfront quote with zero hidden fees</span>
-              </div>
-            </li>
-        </ul>
-        <div class="highlights-card__footer">
-          <span>Mon–Sat: 7:00 AM – 8:00 PM</span>
-          <a href="tel:8137872751" class="inline-call"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> (813) 787-2751</a>
-        </div>
-      </div>
         </div>
       </div>
     </section>
 
-    <!-- Packages -->
-    <section id="services" class="section">
+    <!-- Visual Work Gallery Strip -->
+    <section id="gallery" class="section">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">Services &amp; Pricing</span>
-          <h2>Detailing Packages</h2>
-          <p>Built for daily drivers, family SUVs, trucks, and weekend toys—done right where you park.</p>
+          <div>
+            <span class="eyebrow">Our Craft</span>
+            <h2>Results That Speak</h2>
+          </div>
         </div>
+        <div class="gallery-grid">
+          
+            <article class="gallery-card">
+              <img src="../assets/detailing/interior.jpg" alt="Spotless dark leather car interior detail" loading="lazy" />
+              <div class="gallery-card__overlay">
+                <h3>Interior Reset</h3>
+                <span>Steam, extraction &amp; matte leather</span>
+              </div>
+            </article>
+            <article class="gallery-card">
+              <img src="../assets/detailing/exterior.jpg" alt="Foam wash and glossy dark paint rinse" loading="lazy" />
+              <div class="gallery-card__overlay">
+                <h3>Exterior &amp; Ceramic</h3>
+                <span>Swirl-free foam wash &amp; gloss seal</span>
+              </div>
+            </article>
+            <article class="gallery-card">
+              <img src="../assets/detailing/wheels.jpg" alt="Clean alloy wheel and satin dressed tire" loading="lazy" />
+              <div class="gallery-card__overlay">
+                <h3>Wheels &amp; Trim</h3>
+                <span>Barrels, calipers &amp; satin tire finish</span>
+              </div>
+            </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Streamlined Packages & Estimator -->
+    <section id="packages" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Upfront Pricing</span>
+            <h2>Detailing Packages</h2>
+          </div>
+        </div>
+
         <div class="packages-grid">
           
             <article class="package-card ">
@@ -873,9 +772,8 @@
                 <span class="package-price">$135+</span>
                 <span class="package-duration">1.5 – 2 hrs</span>
               </div>
-              <p class="package-desc">Ideal for well-kept vehicles needing a thorough reset inside and out.</p>
               <ul class="package-features">
-                <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> <span>Foam bath &amp; two-bucket hand wash</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> <span>Deep wheel, barrel &amp; tire dressing</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> <span>Full interior vacuum &amp; crevice blowout</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> <span>Dash, console &amp; door panel wipe-down</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> <span>Streak-free interior &amp; exterior glass</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> <span>Foam bath &amp; hand wash</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> <span>Full interior vacuum &amp; wipe-down</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> <span>Wheels, tires &amp; streak-free glass</span></li>
               </ul>
               <button type="button" class="btn btn-outline select-pkg-btn" data-package="Essential Refresh">
                 Book Essential Refresh
@@ -883,176 +781,131 @@
             </article>
             <article class="package-card is-popular">
               <span class="popular-badge">Most Popular</span>
-              <h3>Signature Full Detail</h3>
+              <h3>Full Detail</h3>
               <div class="package-meta">
                 <span class="package-price">$245+</span>
                 <span class="package-duration">3 – 4 hrs</span>
               </div>
-              <p class="package-desc">Our top-booked complete interior restoration and exterior gloss protection.</p>
               <ul class="package-features">
-                <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> <span>Everything in Essential Refresh</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> <span>Hot-water seat &amp; carpet extraction</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> <span>Leather deep clean &amp; matte conditioning</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> <span>Steam sanitization of vents &amp; cupholders</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> <span>Clay bar decontamination + 6-month sealant</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> <span>Hot-water seat &amp; carpet extraction</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> <span>Leather clean &amp; steam sanitization</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> <span>Clay bar + 6-month paint sealant</span></li>
               </ul>
-              <button type="button" class="btn btn-primary select-pkg-btn" data-package="Signature Full Detail">
-                Book Signature Full Detail
+              <button type="button" class="btn btn-primary select-pkg-btn" data-package="Full Detail">
+                Book Full Detail
               </button>
             </article>
             <article class="package-card ">
               
-              <h3>Gloss &amp; Ceramic Shield</h3>
+              <h3>Ceramic Shield</h3>
               <div class="package-meta">
                 <span class="package-price">$460+</span>
                 <span class="package-duration">5 – 6 hrs</span>
               </div>
-              <p class="package-desc">Long-term hydrophobic protection and deep mirror clarity for serious owners.</p>
               <ul class="package-features">
-                <li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> <span>Complete Signature Full Detail</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> <span>Iron &amp; tar chemical decontamination</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> <span>1-step gloss enhancement machine polish</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> <span>12–18 month ceramic paint coating</span></li><li><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> <span>Trim restoration &amp; hydrophobic glass coat</span></li>
+                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> <span>Complete Full Detail included</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> <span>1-step gloss machine polish</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> <span>12–18 month ceramic paint coating</span></li>
               </ul>
-              <button type="button" class="btn btn-outline select-pkg-btn" data-package="Gloss &amp; Ceramic Shield">
-                Book Gloss &amp; Ceramic Shield
+              <button type="button" class="btn btn-outline select-pkg-btn" data-package="Ceramic Shield">
+                Book Ceramic Shield
               </button>
             </article>
         </div>
-      </div>
-    </section>
 
-    <!-- Instant Price Estimator -->
-    <section id="estimator" class="section section-alt">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Transparent Upfront Quote</span>
-          <h2>Instant Price Estimator</h2>
-          <p>Pick your vehicle size, package, and extras to see your price range in seconds.</p>
-        </div>
-        <div class="estimator-box">
+        <div id="estimator" class="estimator-card">
           <div>
             <div class="est-group">
-              <span class="est-label">1. Vehicle Size</span>
-              <div class="chip-grid" id="est-sizes">
+              <span class="est-label">Vehicle Size</span>
+              <div class="pill-row" id="est-sizes">
                 
                   <button type="button" class="choice-btn is-active" data-size-id="sedan">
-                    <strong>Coupe / Sedan</strong>
-                    <span>Standard rate</span>
+                    <span>Sedan / Coupe</span>
+                    
                   </button>
                   <button type="button" class="choice-btn " data-size-id="suv">
-                    <strong>Midsize SUV / Crossover</strong>
-                    <span>+$35</span>
+                    <span>SUV / Crossover</span>
+                    <small>+$35</small>
                   </button>
                   <button type="button" class="choice-btn " data-size-id="truck">
-                    <strong>Full-Size Truck / 3-Row SUV</strong>
-                    <span>+$65</span>
+                    <span>Truck / 3-Row SUV</span>
+                    <small>+$65</small>
                   </button>
               </div>
             </div>
 
             <div class="est-group">
-              <span class="est-label">2. Service Level</span>
-              <div class="chip-grid" id="est-tiers">
+              <span class="est-label">Package</span>
+              <div class="pill-row" id="est-tiers">
                 
                   <button type="button" class="choice-btn " data-tier-id="refresh">
-                    <strong>Essential Refresh</strong>
-                    <span>From $135</span>
+                    <span>Essential Refresh</span>
+                    <small>$135+</small>
                   </button>
                   <button type="button" class="choice-btn is-active" data-tier-id="full">
-                    <strong>Signature Full Detail</strong>
-                    <span>From $245</span>
+                    <span>Full Detail</span>
+                    <small>$245+</small>
                   </button>
                   <button type="button" class="choice-btn " data-tier-id="ceramic">
-                    <strong>Gloss &amp; Ceramic Shield</strong>
-                    <span>From $460</span>
+                    <span>Ceramic Shield</span>
+                    <small>$460+</small>
                   </button>
               </div>
             </div>
 
             <div class="est-group">
-              <span class="est-label">3. Optional Add-Ons</span>
-              <div class="chip-grid" id="est-addons">
+              <span class="est-label">Optional Extras</span>
+              <div class="pill-row" id="est-addons">
                 
                   <button type="button" class="choice-btn" data-addon-id="pet-hair">
-                    <strong>Heavy Pet Hair Removal</strong>
-                    <span>+$45</span>
+                    <span>Pet Hair Removal</span>
+                    <small>+$45</small>
                   </button>
                   <button type="button" class="choice-btn" data-addon-id="engine">
-                    <strong>Engine Bay Clean &amp; Dress</strong>
-                    <span>+$40</span>
+                    <span>Engine Bay Clean</span>
+                    <small>+$40</small>
                   </button>
                   <button type="button" class="choice-btn" data-addon-id="headlights">
-                    <strong>Headlight Restoration</strong>
-                    <span>+$65</span>
+                    <span>Headlight Restore</span>
+                    <small>+$65</small>
                   </button>
                   <button type="button" class="choice-btn" data-addon-id="odor">
-                    <strong>Ozone Odor Treatment</strong>
-                    <span>+$55</span>
+                    <span>Odor Treatment</span>
+                    <small>+$55</small>
                   </button>
               </div>
             </div>
           </div>
 
-          <aside class="est-summary" aria-live="polite">
-            <div>
-              <span class="eyebrow">Estimated Price Range</span>
-              <div id="est-range" class="est-price-range">$245 &ndash; $285</div>
-              <div id="est-time" class="package-duration">Estimated time: ~3.5 hrs</div>
-              <div id="est-breakdown" class="est-breakdown"></div>
-            </div>
-            <div>
-              <button type="button" id="lock-estimate-btn" class="btn btn-primary btn-lg" style="width: 100%;">
-                Lock In This Estimate
-              </button>
-              <p style="font-size: 0.78rem; color: var(--muted); margin: 10px 0 0; text-align: center;">
-                No payment required now. Final price confirmed on-site.
-              </p>
-            </div>
+          <aside class="est-result" aria-live="polite">
+            <span class="eyebrow">Instant Price Estimator</span>
+            <div id="est-range" class="est-price-range">$245 &ndash; $290</div>
+            <div id="est-time" class="est-time">Estimated time: ~3.5 hrs</div>
+            <button type="button" id="lock-estimate-btn" class="btn btn-primary btn-lg" style="width: 100%;">
+              Book This Price
+            </button>
           </aside>
         </div>
       </div>
     </section>
 
-    <!-- Trust Pillars -->
-    <section class="section">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">The Mike&#39;s Pro Detailing Difference</span>
-          <h2>Why Local Drivers Trust Us</h2>
-        </div>
-        <div class="pillars-grid">
-          
-            <div class="pillar-card">
-              <div class="pillar-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></div>
-              <h3>Fully Mobile &amp; Self-Contained</h3>
-              <p>Spot-free deionized water and quiet onboard power—park at home or work and we handle the rest.</p>
-            </div>
-            <div class="pillar-card">
-              <div class="pillar-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg></div>
-              <h3>Swirl-Free Methods Only</h3>
-              <p>Dedicated wash mitts, pH-neutral snow foam, and fresh microfiber towels on every single vehicle.</p>
-            </div>
-            <div class="pillar-card">
-              <div class="pillar-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-              <h3>On-Time Arrival Windows</h3>
-              <p>Clear text updates when we are en route, reliable arrival windows, and zero shop drop-off hassle.</p>
-            </div>
-            <div class="pillar-card">
-              <div class="pillar-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-              <h3>Walk-Around Guarantee</h3>
-              <p>Before we pack up, we do a final walk-around with you to make sure every inch meets our standard.</p>
-            </div>
-        </div>
+    <!-- Crisp 4-Item Trust Strip -->
+    <div class="trust-strip">
+      <div class="container trust-strip__grid">
+        <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> <span>Onboard Water &amp; Power</span></div><div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> <span>Paint-Safe Products</span></div><div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> <span>Same-Week Slots</span></div><div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> <span>100% Satisfaction Walk</span></div>
       </div>
-    </section>
+    </div>
 
-    <!-- Reviews -->
-    <section id="reviews" class="section section-alt">
+    <!-- Scannable Google Reviews -->
+    <section id="reviews" class="section">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">Verified Customer Feedback</span>
-          <h2>Rated 4.6&#9733; by Tampa Locals</h2>
-          <p>Backed by 51+ real Google reviews from customers across Tampa, Seminole Heights, Sulphur Springs.</p>
+          <div>
+            <span class="eyebrow">Google Verified</span>
+            <h2>4.6 &#9733; from 51 Google Reviews</h2>
+          </div>
         </div>
         <div class="reviews-grid">
           
             <article class="review-card">
               <div>
-                <div style="margin-bottom: 12px;"><span class="stars" aria-label="5 out of 5 stars"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span></div>
+                <div style="margin-bottom: 10px;"><span class="stars" aria-label="5 out of 5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span></div>
                 <p class="review-text">&ldquo;Good people who did a quality job at an honest price. Mike, Curtis, and the team were upfront and honest. Happy with a transparent sale, honest price, and a cleaner car.&rdquo;</p>
               </div>
               <div class="review-author">
@@ -1062,7 +915,7 @@
             </article>
             <article class="review-card">
               <div>
-                <div style="margin-bottom: 12px;"><span class="stars" aria-label="5 out of 5 stars"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span></div>
+                <div style="margin-bottom: 10px;"><span class="stars" aria-label="5 out of 5 stars"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span></div>
                 <p class="review-text">&ldquo;We really appreciate Mike&#39;s Pro Detailing for cleaning our car! Thank you for the hospitality and great job—it smells and looks like new now!&rdquo;</p>
               </div>
               <div class="review-author">
@@ -1074,60 +927,20 @@
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="section">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Common Questions</span>
-          <h2>Everything You Need to Know</h2>
-        </div>
-        <div class="faq-list">
-          
-            <div class="faq-item is-open">
-              <button type="button" class="faq-trigger" aria-expanded="true">
-                <span>Do you need access to my water spigot or electrical outlet?</span>
-                <span class="faq-plus" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-answer">No—our mobile rig carries onboard spot-free water and power. If you happen to be in a tight downtown garage, just let us know when requesting a quote.</div>
-            </div>
-            <div class="faq-item ">
-              <button type="button" class="faq-trigger" aria-expanded="false">
-                <span>How long does a full detail usually take?</span>
-                <span class="faq-plus" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-answer">Most Signature Full Details take between 3 and 4.5 hours depending on vehicle size and interior condition. Essential Refreshes take about 1.5 to 2 hours.</div>
-            </div>
-            <div class="faq-item ">
-              <button type="button" class="faq-trigger" aria-expanded="false">
-                <span>Can you come to my office or apartment parking lot?</span>
-                <span class="faq-plus" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-answer">Yes! As long as your property or workplace allows mobile service in the parking area, we can detail your vehicle while you work.</div>
-            </div>
-            <div class="faq-item ">
-              <button type="button" class="faq-trigger" aria-expanded="false">
-                <span>What if it rains on the day of my appointment?</span>
-                <span class="faq-plus" aria-hidden="true">+</span>
-              </button>
-              <div class="faq-answer">If weather prevents exterior work, we offer free, priority rescheduling to the next open slot—or can focus on interior work under covered parking.</div>
-            </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Quote / Booking Section -->
+    <!-- Minimal Quote Section -->
     <section id="quote" class="section section-alt">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">Fast Callback &amp; Booking</span>
-          <h2>Request Your Free Quote</h2>
-          <p>Tell us what you need and we&rsquo;ll confirm availability and exact pricing fast.</p>
+          <div>
+            <span class="eyebrow">Fast Booking</span>
+            <h2>Request Your Free Quote</h2>
+          </div>
         </div>
 
         <div class="quote-layout">
           <div class="quote-info">
             <div class="info-row">
-              <strong>Call or Text Directly</strong>
+              <strong>Call or Text</strong>
               <a href="tel:8137872751">(813) 787-2751</a>
             </div>
             
@@ -1152,7 +965,7 @@
           <form id="quote-form" class="quote-form">
             <div class="form-grid form-grid--2">
               <div class="field">
-                <label for="q-name">Full Name *</label>
+                <label for="q-name">Your Name *</label>
                 <input id="q-name" name="name" type="text" required placeholder="Alex Johnson" />
               </div>
               <div class="field">
@@ -1160,30 +973,15 @@
                 <input id="q-phone" name="phone" type="tel" required placeholder="(555) 234-5678" />
               </div>
             </div>
-            <div class="form-grid form-grid--2" style="margin-top: 16px;">
-              <div class="field">
-                <label for="q-email">Email Address</label>
-                <input id="q-email" name="email" type="email" placeholder="alex@example.com" />
-              </div>
-              <div class="field">
-                <label for="q-day">Preferred Day</label>
-                <select id="q-day" name="preferredDay">
-                  <option value="First Available">First Available</option>
-                  <option value="This Week (Weekday)">This Week (Weekday)</option>
-                  <option value="This Weekend">This Weekend</option>
-                  <option value="Next Week">Next Week</option>
-                </select>
-              </div>
+            <div class="field" style="margin-top: 14px;">
+              <label for="q-service">Service / Estimate</label>
+              <input id="q-service" name="service" type="text" value="Full Detail" />
             </div>
-            <div class="field" style="margin-top: 16px;">
-              <label for="q-service">Selected Package / Estimate</label>
-              <input id="q-service" name="service" type="text" value="Signature Full Detail" />
+            <div class="field" style="margin-top: 14px;">
+              <label for="q-notes">Vehicle &amp; Neighborhood</label>
+              <textarea id="q-notes" name="notes" rows="2" placeholder="e.g., 2022 Ford F-150, light dog hair, driveway parking..."></textarea>
             </div>
-            <div class="field" style="margin-top: 16px;">
-              <label for="q-notes">Details &amp; Address / Neighborhood</label>
-              <textarea id="q-notes" name="notes" rows="3" placeholder="e.g., 2022 Ford F-150, light dog hair in back seat, located near downtown..."></textarea>
-            </div>
-            <div style="margin-top: 20px;">
+            <div style="margin-top: 16px;">
               <button type="submit" id="quote-submit-btn" class="btn btn-primary btn-lg" style="width: 100%;">
                 Request My Free Quote
               </button>
@@ -1197,27 +995,23 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div>
-        <strong>Mike&#39;s Pro Detailing</strong> &bull; Tampa, FL
-      </div>
-      <div>
-        Mon–Sat: 7:00 AM – 8:00 PM &bull; <a href="tel:8137872751">(813) 787-2751</a>
-      </div>
+      <div><strong>Mike&#39;s Pro Detailing</strong> &bull; Tampa, FL</div>
+      <div><a href="tel:8137872751">(813) 787-2751</a> &bull; Mon–Sat: 7:00 AM – 8:00 PM</div>
     </div>
   </footer>
 
   <div class="mobile-bar">
-    <a href="tel:8137872751" class="btn btn-outline"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call Now</a>
-    <a href="#quote" class="btn btn-primary">Instant Quote</a>
+    <a href="tel:8137872751" class="btn btn-outline"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call</a>
+    <a href="#quote" class="btn btn-primary">Free Quote</a>
   </div>
 
-  <script type="application/json" id="site-data">{"businessName":"Mike's Pro Detailing","city":"Tampa","state":"FL","phone":"(813) 787-2751","email":"","isDemo":true,"formEndpoint":"","estimator":{"sizes":[{"id":"sedan","label":"Coupe / Sedan","delta":0,"extraMins":0},{"id":"suv","label":"Midsize SUV / Crossover","delta":35,"extraMins":30},{"id":"truck","label":"Full-Size Truck / 3-Row SUV","delta":65,"extraMins":45}],"tiers":[{"id":"refresh","label":"Essential Refresh","basePrice":135,"baseMins":105},{"id":"full","label":"Signature Full Detail","basePrice":245,"baseMins":210},{"id":"ceramic","label":"Gloss \u0026 Ceramic Shield","basePrice":460,"baseMins":330}],"addons":[{"id":"pet-hair","label":"Heavy Pet Hair Removal","price":45,"mins":40},{"id":"engine","label":"Engine Bay Clean \u0026 Dress","price":40,"mins":25},{"id":"headlights","label":"Headlight Restoration","price":65,"mins":40},{"id":"odor","label":"Ozone Odor Treatment","price":55,"mins":35}]},"packages":[{"id":"express-refresh","name":"Essential Refresh","priceLabel":"$135+"},{"id":"full-detail","name":"Signature Full Detail","priceLabel":"$245+"},{"id":"ceramic-shield","name":"Gloss \u0026 Ceramic Shield","priceLabel":"$460+"}]}</script>
+  <script type="application/json" id="site-data">{"businessName":"Mike's Pro Detailing","city":"Tampa","state":"FL","phone":"(813) 787-2751","email":"","isDemo":true,"formEndpoint":"","estimator":{"sizes":[{"id":"sedan","label":"Sedan / Coupe","delta":0,"extraMins":0},{"id":"suv","label":"SUV / Crossover","delta":35,"extraMins":30},{"id":"truck","label":"Truck / 3-Row SUV","delta":65,"extraMins":45}],"tiers":[{"id":"refresh","label":"Essential Refresh","basePrice":135,"baseMins":105},{"id":"full","label":"Full Detail","basePrice":245,"baseMins":210},{"id":"ceramic","label":"Ceramic Shield","basePrice":460,"baseMins":330}],"addons":[{"id":"pet-hair","label":"Pet Hair Removal","price":45,"mins":40},{"id":"engine","label":"Engine Bay Clean","price":40,"mins":25},{"id":"headlights","label":"Headlight Restore","price":65,"mins":40},{"id":"odor","label":"Odor Treatment","price":55,"mins":35}]},"packages":[{"id":"express-refresh","name":"Essential Refresh","priceLabel":"$135+"},{"id":"full-detail","name":"Full Detail","priceLabel":"$245+"},{"id":"ceramic-shield","name":"Ceramic Shield","priceLabel":"$460+"}]}</script>
   <script>
     (function () {
       var dataEl = document.getElementById('site-data');
       var SITE_DATA = dataEl ? JSON.parse(dataEl.textContent) : {};
 
-      // Dismissible preview banner
+      // Dismissible preview bar
       var dismissBtn = document.getElementById('dismiss-preview-btn');
       var banner = document.getElementById('preview-banner');
       if (dismissBtn && banner) {
@@ -1234,7 +1028,6 @@
 
       var rangeEl = document.getElementById('est-range');
       var timeEl = document.getElementById('est-time');
-      var breakdownEl = document.getElementById('est-breakdown');
       var currentEstimateSummary = '';
 
       function formatDuration(mins) {
@@ -1257,17 +1050,6 @@
 
         if (rangeEl) rangeEl.textContent = '$' + low + ' – $' + high;
         if (timeEl) timeEl.textContent = 'Estimated time: ~' + formatDuration(totalMins);
-
-        if (breakdownEl) {
-          var lines = [
-            '<div><strong>Package:</strong> ' + tierObj.label + ' ($' + tierObj.basePrice + ')</div>',
-            '<div><strong>Size:</strong> ' + sizeObj.label + (sizeObj.delta > 0 ? ' (+$' + sizeObj.delta + ')' : ' (Included)') + '</div>'
-          ];
-          if (addonObjs.length > 0) {
-            lines.push('<div><strong>Add-ons:</strong> ' + addonObjs.map(function (a) { return a.label + ' (+$' + a.price + ')'; }).join(', ') + '</div>');
-          }
-          breakdownEl.innerHTML = lines.join('');
-        }
 
         var addonText = addonObjs.length > 0
           ? ' + ' + addonObjs.map(function (a) { return a.label; }).join(', ')
@@ -1326,15 +1108,6 @@
         });
       });
 
-      // FAQ Accordion
-      Array.prototype.forEach.call(document.querySelectorAll('.faq-trigger'), function (trigger) {
-        trigger.addEventListener('click', function () {
-          var item = trigger.closest('.faq-item');
-          var isOpen = item.classList.toggle('is-open');
-          trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-        });
-      });
-
       // Quote Form Handling (Preview mode vs Live Web3Forms/Formspree)
       var form = document.getElementById('quote-form');
       var statusEl = document.getElementById('form-status');
@@ -1353,8 +1126,6 @@
           var payload = {
             name: fd.get('name') || '',
             phone: fd.get('phone') || '',
-            email: fd.get('email') || '',
-            preferredDay: fd.get('preferredDay') || '',
             service: fd.get('service') || '',
             notes: fd.get('notes') || '',
             business: SITE_DATA.businessName || ''
@@ -1363,7 +1134,7 @@
           var endpoint = (SITE_DATA.formEndpoint || '').trim();
           if (!endpoint) {
             showStatus(
-              'Preview Quote Captured for ' + payload.name + ' (' + payload.phone + ') — ' + payload.service + '. When published live, lead notifications go straight to ' + (SITE_DATA.email || SITE_DATA.phone || 'your inbox & phone') + '.',
+              'Preview Quote Captured for ' + payload.name + ' (' + payload.phone + ') — ' + payload.service + '. When live, leads go straight to ' + (SITE_DATA.email || SITE_DATA.phone || 'your inbox & phone') + '.',
               false
             );
             return;
@@ -1371,7 +1142,7 @@
 
           if (submitBtn) {
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending Request...';
+            submitBtn.textContent = 'Sending...';
           }
 
           var isWeb3FormsKey = endpoint.indexOf('http') !== 0;
@@ -1387,11 +1158,11 @@
           })
             .then(function (res) {
               if (!res.ok) throw new Error('Request failed');
-              showStatus('Thanks ' + payload.name + '! Your quote request has been sent. We will follow up shortly.', false);
+              showStatus('Thanks ' + payload.name + '! Your quote request has been sent.', false);
               form.reset();
             })
             .catch(function () {
-              showStatus('Could not submit online right now. Please call or text us directly at ' + (SITE_DATA.phone || '') + '.', true);
+              showStatus('Could not submit online right now. Please call or text ' + (SITE_DATA.phone || '') + '.', true);
             })
             .finally(function () {
               if (submitBtn) {
